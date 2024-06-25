@@ -7543,7 +7543,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -16520,16 +16520,121 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_sales_amount</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'not customer_id.str.startswith("Z")'</span><span class="p">,</span> 
+                                   <span class="n">engine</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span><span class="o">.</span> \
+                                   <span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span><span class="o">.</span> \
+                                   <span class="n">agg</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum'</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'log_amount'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'amount'</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">df_sales_amount</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>amount</th>
+<th>log_amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS001113000004</td>
+<td>1298</td>
+<td>3.113442</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS001114000005</td>
+<td>626</td>
+<td>2.796921</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS001115000010</td>
+<td>3044</td>
+<td>3.483516</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CS001205000004</td>
+<td>1988</td>
+<td>3.298526</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CS001205000006</td>
+<td>3337</td>
+<td>3.523421</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CS001211000025</td>
+<td>456</td>
+<td>2.659441</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS001212000027</td>
+<td>448</td>
+<td>2.651762</td>
+</tr>
+<tr>
+<th>7</th>
+<td>CS001212000031</td>
+<td>296</td>
+<td>2.472025</td>
+</tr>
+<tr>
+<th>8</th>
+<td>CS001212000046</td>
+<td>228</td>
+<td>2.358886</td>
+</tr>
+<tr>
+<th>9</th>
+<td>CS001212000070</td>
+<td>456</td>
+<td>2.659441</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16548,16 +16653,121 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_sales_amount</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'not customer_id.str.startswith("Z")'</span><span class="p">,</span> 
+                                   <span class="n">engine</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span><span class="o">.</span> \
+                                   <span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span><span class="o">.</span> \
+                                   <span class="n">agg</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum'</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'log_amount'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'amount'</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">df_sales_amount</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>amount</th>
+<th>log_amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS001113000004</td>
+<td>1298</td>
+<td>7.168965</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS001114000005</td>
+<td>626</td>
+<td>6.440149</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS001115000010</td>
+<td>3044</td>
+<td>8.021092</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CS001205000004</td>
+<td>1988</td>
+<td>7.595136</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CS001205000006</td>
+<td>3337</td>
+<td>8.112977</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CS001211000025</td>
+<td>456</td>
+<td>6.123589</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS001212000027</td>
+<td>448</td>
+<td>6.105909</td>
+</tr>
+<tr>
+<th>7</th>
+<td>CS001212000031</td>
+<td>296</td>
+<td>5.692047</td>
+</tr>
+<tr>
+<th>8</th>
+<td>CS001212000046</td>
+<td>228</td>
+<td>5.431536</td>
+</tr>
+<tr>
+<th>9</th>
+<td>CS001212000070</td>
+<td>456</td>
+<td>6.123589</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16576,16 +16786,162 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_product</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_profit'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_price'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">]</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>product_cd</th>
+<th>category_major_cd</th>
+<th>category_medium_cd</th>
+<th>category_small_cd</th>
+<th>unit_price</th>
+<th>unit_cost</th>
+<th>unit_profit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>P040101001</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>198.0</td>
+<td>149.0</td>
+<td>49.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>P040101002</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>218.0</td>
+<td>164.0</td>
+<td>54.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>P040101003</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>230.0</td>
+<td>173.0</td>
+<td>57.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>P040101004</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>248.0</td>
+<td>186.0</td>
+<td>62.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>P040101005</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>268.0</td>
+<td>201.0</td>
+<td>67.0</td>
+</tr>
+<tr>
+<th>5</th>
+<td>P040101006</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>298.0</td>
+<td>224.0</td>
+<td>74.0</td>
+</tr>
+<tr>
+<th>6</th>
+<td>P040101007</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>338.0</td>
+<td>254.0</td>
+<td>84.0</td>
+</tr>
+<tr>
+<th>7</th>
+<td>P040101008</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>420.0</td>
+<td>315.0</td>
+<td>105.0</td>
+</tr>
+<tr>
+<th>8</th>
+<td>P040101009</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>498.0</td>
+<td>374.0</td>
+<td>124.0</td>
+</tr>
+<tr>
+<th>9</th>
+<td>P040101010</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>580.0</td>
+<td>435.0</td>
+<td>145.0</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16604,16 +16960,33 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_product</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_profit_rate'</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_price'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">])</span> <span class="o">/</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_price'</span><span class="p">]</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_profit_rate'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>0.24911389885177</pre>
 </div>
 </div>
 </div>
@@ -16632,16 +17005,143 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_product</span><span class="p">[[</span><span class="s1">'product_cd'</span><span class="p">,</span> <span class="s1">'unit_price'</span><span class="p">,</span> <span class="s1">'unit_cost'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_price'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">]</span> <span class="o">/</span> <span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_profit_rate'</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_price'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">])</span> <span class="o">/</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_price'</span><span class="p">]</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>product_cd</th>
+<th>unit_price</th>
+<th>unit_cost</th>
+<th>new_price</th>
+<th>new_profit_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>P040101001</td>
+<td>198.0</td>
+<td>149.0</td>
+<td>212.0</td>
+<td>0.297170</td>
+</tr>
+<tr>
+<th>1</th>
+<td>P040101002</td>
+<td>218.0</td>
+<td>164.0</td>
+<td>234.0</td>
+<td>0.299145</td>
+</tr>
+<tr>
+<th>2</th>
+<td>P040101003</td>
+<td>230.0</td>
+<td>173.0</td>
+<td>247.0</td>
+<td>0.299595</td>
+</tr>
+<tr>
+<th>3</th>
+<td>P040101004</td>
+<td>248.0</td>
+<td>186.0</td>
+<td>265.0</td>
+<td>0.298113</td>
+</tr>
+<tr>
+<th>4</th>
+<td>P040101005</td>
+<td>268.0</td>
+<td>201.0</td>
+<td>287.0</td>
+<td>0.299652</td>
+</tr>
+<tr>
+<th>5</th>
+<td>P040101006</td>
+<td>298.0</td>
+<td>224.0</td>
+<td>320.0</td>
+<td>0.300000</td>
+</tr>
+<tr>
+<th>6</th>
+<td>P040101007</td>
+<td>338.0</td>
+<td>254.0</td>
+<td>362.0</td>
+<td>0.298343</td>
+</tr>
+<tr>
+<th>7</th>
+<td>P040101008</td>
+<td>420.0</td>
+<td>315.0</td>
+<td>450.0</td>
+<td>0.300000</td>
+</tr>
+<tr>
+<th>8</th>
+<td>P040101009</td>
+<td>498.0</td>
+<td>374.0</td>
+<td>534.0</td>
+<td>0.299625</td>
+</tr>
+<tr>
+<th>9</th>
+<td>P040101010</td>
+<td>580.0</td>
+<td>435.0</td>
+<td>621.0</td>
+<td>0.299517</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16660,16 +17160,143 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_product</span><span class="p">[[</span><span class="s1">'product_cd'</span><span class="p">,</span> <span class="s1">'unit_price'</span><span class="p">,</span> <span class="s1">'unit_cost'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_price'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">]</span> <span class="o">/</span> <span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_profit_rate'</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_price'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">])</span> <span class="o">/</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_price'</span><span class="p">]</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>product_cd</th>
+<th>unit_price</th>
+<th>unit_cost</th>
+<th>new_price</th>
+<th>new_profit_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>P040101001</td>
+<td>198.0</td>
+<td>149.0</td>
+<td>213.0</td>
+<td>0.300469</td>
+</tr>
+<tr>
+<th>1</th>
+<td>P040101002</td>
+<td>218.0</td>
+<td>164.0</td>
+<td>234.0</td>
+<td>0.299145</td>
+</tr>
+<tr>
+<th>2</th>
+<td>P040101003</td>
+<td>230.0</td>
+<td>173.0</td>
+<td>247.0</td>
+<td>0.299595</td>
+</tr>
+<tr>
+<th>3</th>
+<td>P040101004</td>
+<td>248.0</td>
+<td>186.0</td>
+<td>266.0</td>
+<td>0.300752</td>
+</tr>
+<tr>
+<th>4</th>
+<td>P040101005</td>
+<td>268.0</td>
+<td>201.0</td>
+<td>287.0</td>
+<td>0.299652</td>
+</tr>
+<tr>
+<th>5</th>
+<td>P040101006</td>
+<td>298.0</td>
+<td>224.0</td>
+<td>320.0</td>
+<td>0.300000</td>
+</tr>
+<tr>
+<th>6</th>
+<td>P040101007</td>
+<td>338.0</td>
+<td>254.0</td>
+<td>363.0</td>
+<td>0.300275</td>
+</tr>
+<tr>
+<th>7</th>
+<td>P040101008</td>
+<td>420.0</td>
+<td>315.0</td>
+<td>450.0</td>
+<td>0.300000</td>
+</tr>
+<tr>
+<th>8</th>
+<td>P040101009</td>
+<td>498.0</td>
+<td>374.0</td>
+<td>534.0</td>
+<td>0.299625</td>
+</tr>
+<tr>
+<th>9</th>
+<td>P040101010</td>
+<td>580.0</td>
+<td>435.0</td>
+<td>621.0</td>
+<td>0.299517</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16688,16 +17315,143 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_product</span><span class="p">[[</span><span class="s1">'product_cd'</span><span class="p">,</span> <span class="s1">'unit_price'</span><span class="p">,</span> <span class="s1">'unit_cost'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_price'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">]</span> <span class="o">/</span> <span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_profit_rate'</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_price'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">])</span> <span class="o">/</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'new_price'</span><span class="p">]</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>product_cd</th>
+<th>unit_price</th>
+<th>unit_cost</th>
+<th>new_price</th>
+<th>new_profit_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>P040101001</td>
+<td>198.0</td>
+<td>149.0</td>
+<td>213.0</td>
+<td>0.300469</td>
+</tr>
+<tr>
+<th>1</th>
+<td>P040101002</td>
+<td>218.0</td>
+<td>164.0</td>
+<td>235.0</td>
+<td>0.302128</td>
+</tr>
+<tr>
+<th>2</th>
+<td>P040101003</td>
+<td>230.0</td>
+<td>173.0</td>
+<td>248.0</td>
+<td>0.302419</td>
+</tr>
+<tr>
+<th>3</th>
+<td>P040101004</td>
+<td>248.0</td>
+<td>186.0</td>
+<td>266.0</td>
+<td>0.300752</td>
+</tr>
+<tr>
+<th>4</th>
+<td>P040101005</td>
+<td>268.0</td>
+<td>201.0</td>
+<td>288.0</td>
+<td>0.302083</td>
+</tr>
+<tr>
+<th>5</th>
+<td>P040101006</td>
+<td>298.0</td>
+<td>224.0</td>
+<td>320.0</td>
+<td>0.300000</td>
+</tr>
+<tr>
+<th>6</th>
+<td>P040101007</td>
+<td>338.0</td>
+<td>254.0</td>
+<td>363.0</td>
+<td>0.300275</td>
+</tr>
+<tr>
+<th>7</th>
+<td>P040101008</td>
+<td>420.0</td>
+<td>315.0</td>
+<td>451.0</td>
+<td>0.301552</td>
+</tr>
+<tr>
+<th>8</th>
+<td>P040101009</td>
+<td>498.0</td>
+<td>374.0</td>
+<td>535.0</td>
+<td>0.300935</td>
+</tr>
+<tr>
+<th>9</th>
+<td>P040101010</td>
+<td>580.0</td>
+<td>435.0</td>
+<td>622.0</td>
+<td>0.300643</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16716,16 +17470,118 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_product</span><span class="p">[[</span><span class="s1">'product_cd'</span><span class="p">,</span> <span class="s1">'unit_price'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'tax_price'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'unit_price'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>product_cd</th>
+<th>unit_price</th>
+<th>tax_price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>P040101001</td>
+<td>198.0</td>
+<td>217.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>P040101002</td>
+<td>218.0</td>
+<td>239.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>P040101003</td>
+<td>230.0</td>
+<td>253.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>P040101004</td>
+<td>248.0</td>
+<td>272.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>P040101005</td>
+<td>268.0</td>
+<td>294.0</td>
+</tr>
+<tr>
+<th>5</th>
+<td>P040101006</td>
+<td>298.0</td>
+<td>327.0</td>
+</tr>
+<tr>
+<th>6</th>
+<td>P040101007</td>
+<td>338.0</td>
+<td>371.0</td>
+</tr>
+<tr>
+<th>7</th>
+<td>P040101008</td>
+<td>420.0</td>
+<td>462.0</td>
+</tr>
+<tr>
+<th>8</th>
+<td>P040101009</td>
+<td>498.0</td>
+<td>547.0</td>
+</tr>
+<tr>
+<th>9</th>
+<td>P040101010</td>
+<td>580.0</td>
+<td>638.0</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16744,16 +17600,137 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp_1</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum'</span><span class="p">})</span><span class="o">.</span> \
+                <span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum_all'</span><span class="p">})</span>
+
+<span class="n">df_tmp_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_receipt</span><span class="p">,</span> <span class="n">df_product</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'category_major_cd == "07"'</span><span class="p">),</span> 
+                <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'product_cd'</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span><span class="o">.</span>\
+                <span class="n">agg</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum'</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span>\
+                <span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum_07'</span><span class="p">})</span>
+
+<span class="n">df_tmp_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tmp_1</span><span class="p">,</span> <span class="n">df_tmp_2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span>
+
+<span class="n">df_tmp_3</span><span class="p">[</span><span class="s1">'sales_rate'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp_3</span><span class="p">[</span><span class="s1">'sum_07'</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_tmp_3</span><span class="p">[</span><span class="s1">'sum_all'</span><span class="p">]</span>
+
+<span class="n">df_tmp_3</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>sum_all</th>
+<th>sum_07</th>
+<th>sales_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS001113000004</td>
+<td>1298</td>
+<td>1298</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS001114000005</td>
+<td>626</td>
+<td>486</td>
+<td>0.776358</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS001115000010</td>
+<td>3044</td>
+<td>2694</td>
+<td>0.885020</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CS001205000004</td>
+<td>1988</td>
+<td>346</td>
+<td>0.174044</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CS001205000006</td>
+<td>3337</td>
+<td>2004</td>
+<td>0.600539</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CS001212000027</td>
+<td>448</td>
+<td>200</td>
+<td>0.446429</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS001212000031</td>
+<td>296</td>
+<td>296</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<th>7</th>
+<td>CS001212000046</td>
+<td>228</td>
+<td>108</td>
+<td>0.473684</td>
+</tr>
+<tr>
+<th>8</th>
+<td>CS001212000070</td>
+<td>456</td>
+<td>308</td>
+<td>0.675439</td>
+</tr>
+<tr>
+<th>9</th>
+<td>CS001213000018</td>
+<td>243</td>
+<td>145</td>
+<td>0.596708</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16772,16 +17749,138 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">,</span> <span class="s1">'sales_ymd'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">,</span> <span class="n">df_customer</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">,</span> <span class="s1">'application_date'</span><span class="p">]],</span>
+                  <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">))</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">])</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'elapsed_days'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">]</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'elapsed_days'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'elapsed_days'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>sales_ymd</th>
+<th>application_date</th>
+<th>elapsed_days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS006214000001</td>
+<td>2018-11-03</td>
+<td>2015-02-01</td>
+<td>1371</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS006214000001</td>
+<td>2017-05-09</td>
+<td>2015-02-01</td>
+<td>828</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS006214000001</td>
+<td>2017-06-08</td>
+<td>2015-02-01</td>
+<td>858</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CS006214000001</td>
+<td>2018-10-28</td>
+<td>2015-02-01</td>
+<td>1365</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CS006214000001</td>
+<td>2019-09-08</td>
+<td>2015-02-01</td>
+<td>1680</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CS006214000001</td>
+<td>2018-01-31</td>
+<td>2015-02-01</td>
+<td>1095</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS006214000001</td>
+<td>2017-07-05</td>
+<td>2015-02-01</td>
+<td>885</td>
+</tr>
+<tr>
+<th>7</th>
+<td>CS006214000001</td>
+<td>2018-11-10</td>
+<td>2015-02-01</td>
+<td>1378</td>
+</tr>
+<tr>
+<th>8</th>
+<td>CS006214000001</td>
+<td>2019-04-10</td>
+<td>2015-02-01</td>
+<td>1529</td>
+</tr>
+<tr>
+<th>9</th>
+<td>CS006214000001</td>
+<td>2019-06-01</td>
+<td>2015-02-01</td>
+<td>1581</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16800,16 +17899,138 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">,</span> <span class="s1">'sales_ymd'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">,</span> <span class="n">df_customer</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">,</span> <span class="s1">'application_date'</span><span class="p">]],</span>
+                  <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">))</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">])</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'elapsed_months'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[[</span><span class="s1">'sales_ymd'</span><span class="p">,</span> <span class="s1">'application_date'</span><span class="p">]]</span><span class="o">.</span> \
+    <span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">years</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">+</span> \
+                    <span class="n">relativedelta</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">months</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>sales_ymd</th>
+<th>application_date</th>
+<th>elapsed_months</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS006214000001</td>
+<td>2018-11-03</td>
+<td>2015-02-01</td>
+<td>45</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS006214000001</td>
+<td>2017-05-09</td>
+<td>2015-02-01</td>
+<td>27</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS006214000001</td>
+<td>2017-06-08</td>
+<td>2015-02-01</td>
+<td>28</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CS006214000001</td>
+<td>2018-10-28</td>
+<td>2015-02-01</td>
+<td>44</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CS006214000001</td>
+<td>2019-09-08</td>
+<td>2015-02-01</td>
+<td>55</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CS006214000001</td>
+<td>2018-01-31</td>
+<td>2015-02-01</td>
+<td>35</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS006214000001</td>
+<td>2017-07-05</td>
+<td>2015-02-01</td>
+<td>29</td>
+</tr>
+<tr>
+<th>7</th>
+<td>CS006214000001</td>
+<td>2018-11-10</td>
+<td>2015-02-01</td>
+<td>45</td>
+</tr>
+<tr>
+<th>8</th>
+<td>CS006214000001</td>
+<td>2019-04-10</td>
+<td>2015-02-01</td>
+<td>50</td>
+</tr>
+<tr>
+<th>9</th>
+<td>CS006214000001</td>
+<td>2019-06-01</td>
+<td>2015-02-01</td>
+<td>52</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16828,16 +18049,137 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">,</span> <span class="s1">'sales_ymd'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">,</span> <span class="n">df_customer</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">,</span> <span class="s1">'application_date'</span><span class="p">]],</span>
+                  <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">))</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">])</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'elapsed_years'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[[</span><span class="s1">'sales_ymd'</span><span class="p">,</span> <span class="s1">'application_date'</span><span class="p">]]</span><span class="o">.</span> \
+                    <span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">years</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>sales_ymd</th>
+<th>application_date</th>
+<th>elapsed_years</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS006214000001</td>
+<td>2018-11-03</td>
+<td>2015-02-01</td>
+<td>3</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS006214000001</td>
+<td>2017-05-09</td>
+<td>2015-02-01</td>
+<td>2</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS006214000001</td>
+<td>2017-06-08</td>
+<td>2015-02-01</td>
+<td>2</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CS006214000001</td>
+<td>2018-10-28</td>
+<td>2015-02-01</td>
+<td>3</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CS006214000001</td>
+<td>2019-09-08</td>
+<td>2015-02-01</td>
+<td>4</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CS006214000001</td>
+<td>2018-01-31</td>
+<td>2015-02-01</td>
+<td>2</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS006214000001</td>
+<td>2017-07-05</td>
+<td>2015-02-01</td>
+<td>2</td>
+</tr>
+<tr>
+<th>7</th>
+<td>CS006214000001</td>
+<td>2018-11-10</td>
+<td>2015-02-01</td>
+<td>3</td>
+</tr>
+<tr>
+<th>8</th>
+<td>CS006214000001</td>
+<td>2019-04-10</td>
+<td>2015-02-01</td>
+<td>4</td>
+</tr>
+<tr>
+<th>9</th>
+<td>CS006214000001</td>
+<td>2019-06-01</td>
+<td>2015-02-01</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16856,16 +18198,139 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">,</span> <span class="s1">'sales_ymd'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">,</span> <span class="n">df_customer</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">,</span> <span class="s1">'application_date'</span><span class="p">]],</span>
+                  <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">))</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">])</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'elapsed_epoch'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="o">-</span> \
+                                    <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'application_date'</span><span class="p">]</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'elapsed_epoch'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'elapsed_epoch'</span><span class="p">]</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>sales_ymd</th>
+<th>application_date</th>
+<th>elapsed_epoch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS006214000001</td>
+<td>2018-11-03</td>
+<td>2015-02-01</td>
+<td>118454400.0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS006214000001</td>
+<td>2017-05-09</td>
+<td>2015-02-01</td>
+<td>71539200.0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS006214000001</td>
+<td>2017-06-08</td>
+<td>2015-02-01</td>
+<td>74131200.0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CS006214000001</td>
+<td>2018-10-28</td>
+<td>2015-02-01</td>
+<td>117936000.0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CS006214000001</td>
+<td>2019-09-08</td>
+<td>2015-02-01</td>
+<td>145152000.0</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CS006214000001</td>
+<td>2018-01-31</td>
+<td>2015-02-01</td>
+<td>94608000.0</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS006214000001</td>
+<td>2017-07-05</td>
+<td>2015-02-01</td>
+<td>76464000.0</td>
+</tr>
+<tr>
+<th>7</th>
+<td>CS006214000001</td>
+<td>2018-11-10</td>
+<td>2015-02-01</td>
+<td>119059200.0</td>
+</tr>
+<tr>
+<th>8</th>
+<td>CS006214000001</td>
+<td>2019-04-10</td>
+<td>2015-02-01</td>
+<td>132105600.0</td>
+</tr>
+<tr>
+<th>9</th>
+<td>CS006214000001</td>
+<td>2019-06-01</td>
+<td>2015-02-01</td>
+<td>136598400.0</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16884,16 +18349,123 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="p">[[</span><span class="s1">'sales_ymd'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">))</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'elapsed_days'</span><span class="p">]</span>  <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'monday'</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="n">df_tmp</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">weekday</span><span class="p">()))</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>sales_ymd</th>
+<th>elapsed_days</th>
+<th>monday</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2018-11-03</td>
+<td>5</td>
+<td>2018-10-29</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2018-11-18</td>
+<td>6</td>
+<td>2018-11-12</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2017-07-12</td>
+<td>2</td>
+<td>2017-07-10</td>
+</tr>
+<tr>
+<th>3</th>
+<td>2019-02-05</td>
+<td>1</td>
+<td>2019-02-04</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2018-08-21</td>
+<td>1</td>
+<td>2018-08-20</td>
+</tr>
+<tr>
+<th>5</th>
+<td>2019-06-05</td>
+<td>2</td>
+<td>2019-06-03</td>
+</tr>
+<tr>
+<th>6</th>
+<td>2018-12-05</td>
+<td>2</td>
+<td>2018-12-03</td>
+</tr>
+<tr>
+<th>7</th>
+<td>2019-09-22</td>
+<td>6</td>
+<td>2019-09-16</td>
+</tr>
+<tr>
+<th>8</th>
+<td>2017-05-04</td>
+<td>3</td>
+<td>2017-05-01</td>
+</tr>
+<tr>
+<th>9</th>
+<td>2019-10-10</td>
+<td>3</td>
+<td>2019-10-07</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16912,16 +18484,202 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_customer</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>customer_name</th>
+<th>gender_cd</th>
+<th>gender</th>
+<th>birth_day</th>
+<th>age</th>
+<th>postal_cd</th>
+<th>address</th>
+<th>application_store_cd</th>
+<th>application_date</th>
+<th>status_cd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>1213</th>
+<td>CS003513000521</td>
+<td>神野 礼子</td>
+<td>1</td>
+<td>女性</td>
+<td>1962-04-08</td>
+<td>56</td>
+<td>201-0003</td>
+<td>東京都狛江市和泉本町**********</td>
+<td>S13003</td>
+<td>20171011</td>
+<td>0-00000000-0</td>
+</tr>
+<tr>
+<th>19070</th>
+<td>CS006405000002</td>
+<td>堀 碧海</td>
+<td>0</td>
+<td>男性</td>
+<td>1977-10-28</td>
+<td>41</td>
+<td>224-0006</td>
+<td>神奈川県横浜市都筑区荏田東**********</td>
+<td>S14006</td>
+<td>20150511</td>
+<td>0-00000000-0</td>
+</tr>
+<tr>
+<th>16970</th>
+<td>CS033603000034</td>
+<td>武藤 ヒロ</td>
+<td>0</td>
+<td>男性</td>
+<td>1954-09-20</td>
+<td>64</td>
+<td>241-0826</td>
+<td>神奈川県横浜市旭区東希望が丘**********</td>
+<td>S14033</td>
+<td>20161218</td>
+<td>0-00000000-0</td>
+</tr>
+<tr>
+<th>1064</th>
+<td>CS011614000024</td>
+<td>長沢 菜摘</td>
+<td>1</td>
+<td>女性</td>
+<td>1955-11-04</td>
+<td>63</td>
+<td>223-0053</td>
+<td>神奈川県横浜市港北区綱島西**********</td>
+<td>S14011</td>
+<td>20151115</td>
+<td>4-20091130-3</td>
+</tr>
+<tr>
+<th>10213</th>
+<td>CS005515000358</td>
+<td>神木 恭子</td>
+<td>1</td>
+<td>女性</td>
+<td>1967-06-16</td>
+<td>51</td>
+<td>165-0033</td>
+<td>東京都中野区若宮**********</td>
+<td>S13005</td>
+<td>20171025</td>
+<td>0-00000000-0</td>
+</tr>
+<tr>
+<th>13909</th>
+<td>CS003413000716</td>
+<td>田原 みき</td>
+<td>1</td>
+<td>女性</td>
+<td>1974-03-23</td>
+<td>45</td>
+<td>182-0007</td>
+<td>東京都調布市菊野台**********</td>
+<td>S13003</td>
+<td>20171025</td>
+<td>0-00000000-0</td>
+</tr>
+<tr>
+<th>19763</th>
+<td>CS004313000233</td>
+<td>田村 まみ</td>
+<td>1</td>
+<td>女性</td>
+<td>1986-07-07</td>
+<td>32</td>
+<td>176-0023</td>
+<td>東京都練馬区中村北**********</td>
+<td>S13004</td>
+<td>20160713</td>
+<td>0-00000000-0</td>
+</tr>
+<tr>
+<th>13714</th>
+<td>CS019415000002</td>
+<td>村井 瞳</td>
+<td>1</td>
+<td>女性</td>
+<td>1972-04-07</td>
+<td>46</td>
+<td>173-0035</td>
+<td>東京都板橋区大谷口**********</td>
+<td>S13019</td>
+<td>20150525</td>
+<td>D-20100716-D</td>
+</tr>
+<tr>
+<th>4557</th>
+<td>CS002413000323</td>
+<td>板垣 璃奈子</td>
+<td>1</td>
+<td>女性</td>
+<td>1976-07-30</td>
+<td>42</td>
+<td>184-0015</td>
+<td>東京都小金井市貫井北町**********</td>
+<td>S13002</td>
+<td>20161215</td>
+<td>0-00000000-0</td>
+</tr>
+<tr>
+<th>12196</th>
+<td>CS038412000106</td>
+<td>草野 優</td>
+<td>1</td>
+<td>女性</td>
+<td>1969-06-06</td>
+<td>49</td>
+<td>134-0085</td>
+<td>東京都江戸川区南葛西**********</td>
+<td>S13038</td>
+<td>20150623</td>
+<td>0-00000000-0</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16940,16 +18698,71 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">df_tmp</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_customer</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+                             <span class="n">stratify</span><span class="o">=</span><span class="n">df_customer</span><span class="p">[</span><span class="s1">'gender_cd'</span><span class="p">])</span>
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'gender_cd'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'customer_id'</span> <span class="p">:</span> <span class="s1">'count'</span><span class="p">})</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+</tr>
+<tr>
+<th>gender_cd</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>298</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1793</td>
+</tr>
+<tr>
+<th>9</th>
+<td>107</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16968,16 +18781,69 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_sales_amount</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span><span class="o">.</span> \
+                                <span class="n">agg</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum'</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'log_sum_amount'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'amount'</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'log_sum_amount_ss'</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'log_sum_amount'</span><span class="p">])</span>
+
+<span class="n">df_sales_amount</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'abs(log_sum_amount_ss) &gt; 3'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>amount</th>
+<th>log_sum_amount</th>
+<th>log_sum_amount_ss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>8306</th>
+<td>ZZ000000000000</td>
+<td>12395003</td>
+<td>16.332804</td>
+<td>7.967822</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -16996,16 +18862,115 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_sales_amount</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'not customer_id.str.startswith("Z")'</span><span class="p">,</span> 
+                                   <span class="n">engine</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span><span class="o">.</span> \
+                                   <span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span><span class="o">.</span> \
+                                   <span class="n">agg</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum'</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">pct25</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'amount'</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">pct75</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df_sales_amount</span><span class="p">[</span><span class="s1">'amount'</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+
+<span class="n">iqr</span> <span class="o">=</span> <span class="n">pct75</span> <span class="o">-</span> <span class="n">pct25</span>
+<span class="n">amount_low</span> <span class="o">=</span> <span class="n">pct25</span> <span class="o">-</span> <span class="p">(</span><span class="n">iqr</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">amount_hight</span> <span class="o">=</span> <span class="n">pct75</span> <span class="o">+</span> <span class="p">(</span><span class="n">iqr</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<span class="n">df_sales_amount</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'amount &lt; @amount_low or @amount_hight &lt; amount'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>98</th>
+<td>CS001414000048</td>
+<td>8584</td>
+</tr>
+<tr>
+<th>332</th>
+<td>CS001605000009</td>
+<td>18925</td>
+</tr>
+<tr>
+<th>549</th>
+<td>CS002415000594</td>
+<td>9568</td>
+</tr>
+<tr>
+<th>1180</th>
+<td>CS004414000181</td>
+<td>9584</td>
+</tr>
+<tr>
+<th>1558</th>
+<td>CS005415000137</td>
+<td>8734</td>
+</tr>
+<tr>
+<th>1733</th>
+<td>CS006414000001</td>
+<td>9156</td>
+</tr>
+<tr>
+<th>1736</th>
+<td>CS006414000029</td>
+<td>9179</td>
+</tr>
+<tr>
+<th>1752</th>
+<td>CS006415000105</td>
+<td>10042</td>
+</tr>
+<tr>
+<th>1755</th>
+<td>CS006415000147</td>
+<td>12723</td>
+</tr>
+<tr>
+<th>1757</th>
+<td>CS006415000157</td>
+<td>10648</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -17024,16 +18989,34 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>product_cd            0
+category_major_cd     0
+category_medium_cd    0
+category_small_cd     0
+unit_price            7
+unit_cost             7
+dtype: int64</pre>
 </div>
 </div>
 </div>
@@ -17052,16 +19035,35 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_1</span> <span class="o">=</span> <span class="n">df_product</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_product_1</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'削除前:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_product</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'削除後:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_product_1</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>削除前: 10030
+削除後: 10023
+</pre>
 </div>
 </div>
 </div>
@@ -17080,16 +19082,38 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_2</span> <span class="o">=</span> <span class="n">df_product</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span>
+    <span class="s1">'unit_price'</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">df_product</span><span class="p">[</span><span class="s1">'unit_price'</span><span class="p">])),</span> 
+    <span class="s1">'unit_cost'</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">df_product</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">]))})</span>
+
+<span class="n">df_product_2</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>product_cd            0
+category_major_cd     0
+category_medium_cd    0
+category_small_cd     0
+unit_price            0
+unit_cost             0
+dtype: int64</pre>
 </div>
 </div>
 </div>
@@ -17108,16 +19132,38 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_3</span> <span class="o">=</span> <span class="n">df_product</span><span class="o">.</span><span class="n">fillna</span><span class="p">({</span>
+    <span class="s1">'unit_price'</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">df_product</span><span class="p">[</span><span class="s1">'unit_price'</span><span class="p">])),</span> 
+    <span class="s1">'unit_cost'</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">df_product</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">]))})</span>
+
+<span class="n">df_product_3</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>product_cd            0
+category_major_cd     0
+category_medium_cd    0
+category_small_cd     0
+unit_price            0
+unit_cost             0
+dtype: int64</pre>
 </div>
 </div>
 </div>
@@ -17136,16 +19182,48 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_product</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'category_small_cd'</span><span class="p">)</span>
+          <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">median_price</span><span class="o">=</span><span class="p">(</span><span class="s1">'unit_price'</span><span class="p">,</span> <span class="s1">'median'</span><span class="p">),</span> 
+               <span class="n">median_cost</span><span class="o">=</span><span class="p">(</span><span class="s1">'unit_cost'</span><span class="p">,</span> <span class="s1">'median'</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">())</span>
+
+<span class="n">df_product_4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_product</span><span class="p">,</span> <span class="n">df_tmp</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'category_small_cd'</span><span class="p">)</span>
+
+<span class="n">df_product_4</span><span class="p">[</span><span class="s1">'unit_price'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_product_4</span><span class="p">[[</span><span class="s1">'unit_price'</span><span class="p">,</span> <span class="s1">'median_price'</span><span class="p">]]</span><span class="o">.</span> \
+            <span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">else</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_product_4</span><span class="p">[</span><span class="s1">'unit_cost'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_product_4</span><span class="p">[[</span><span class="s1">'unit_cost'</span><span class="p">,</span> <span class="s1">'median_cost'</span><span class="p">]]</span><span class="o">.</span> \
+            <span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">else</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_product_4</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>product_cd            0
+category_major_cd     0
+category_medium_cd    0
+category_small_cd     0
+unit_price            0
+unit_cost             0
+median_price          0
+median_cost           0
+dtype: int64</pre>
 </div>
 </div>
 </div>
@@ -17164,16 +19242,147 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_receipt_2019</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'20190101 &lt;= sales_ymd &lt;= 20191231'</span><span class="p">)</span> \
+                            <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span> \
+                            <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">amount_2019</span><span class="o">=</span><span class="p">(</span><span class="s1">'amount'</span><span class="p">,</span> <span class="s1">'sum'</span><span class="p">))</span> \
+                            <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_receipt_all</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span>\
+                            <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">amount_all</span><span class="o">=</span><span class="p">(</span><span class="s1">'amount'</span><span class="p">,</span> <span class="s1">'sum'</span><span class="p">))</span> \
+                            <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_sales_rate</span> <span class="o">=</span> <span class="n">df_customer</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">]]</span> \
+                    <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_receipt_2019</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span> \
+                    <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_receipt_all</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span>
+
+<span class="n">df_sales_rate</span><span class="p">[</span><span class="s1">'amount_2019'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_sales_rate</span><span class="p">[</span><span class="s1">'amount_2019'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_sales_rate</span><span class="p">[</span><span class="s1">'amount_all'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_sales_rate</span><span class="p">[</span><span class="s1">'amount_all'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df_sales_rate</span><span class="p">[</span><span class="s1">'amount_rate'</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="n">df_sales_rate</span><span class="p">[[</span><span class="s1">'amount_2019'</span><span class="p">,</span><span class="s1">'amount_all'</span><span class="p">]]</span> \
+                    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_sales_rate</span><span class="p">[</span><span class="s1">'amount_rate'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_sales_rate</span><span class="p">[</span><span class="s1">'amount_rate'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df_sales_rate</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'amount_rate &gt; 0'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>amount_2019</th>
+<th>amount_all</th>
+<th>amount_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2</th>
+<td>CS031415000172</td>
+<td>2971.0</td>
+<td>5088.0</td>
+<td>0.583923</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS015414000103</td>
+<td>874.0</td>
+<td>3122.0</td>
+<td>0.279949</td>
+</tr>
+<tr>
+<th>12</th>
+<td>CS011215000048</td>
+<td>248.0</td>
+<td>3444.0</td>
+<td>0.072009</td>
+</tr>
+<tr>
+<th>15</th>
+<td>CS029415000023</td>
+<td>3767.0</td>
+<td>5167.0</td>
+<td>0.729050</td>
+</tr>
+<tr>
+<th>21</th>
+<td>CS035415000029</td>
+<td>5823.0</td>
+<td>7504.0</td>
+<td>0.775986</td>
+</tr>
+<tr>
+<th>23</th>
+<td>CS023513000066</td>
+<td>208.0</td>
+<td>771.0</td>
+<td>0.269780</td>
+</tr>
+<tr>
+<th>24</th>
+<td>CS035513000134</td>
+<td>463.0</td>
+<td>1565.0</td>
+<td>0.295847</td>
+</tr>
+<tr>
+<th>27</th>
+<td>CS001515000263</td>
+<td>216.0</td>
+<td>216.0</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<th>30</th>
+<td>CS006415000279</td>
+<td>229.0</td>
+<td>229.0</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<th>32</th>
+<td>CS031415000106</td>
+<td>215.0</td>
+<td>7741.0</td>
+<td>0.027774</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -17192,16 +19401,231 @@ numpy.std(a, axis=None, dtype=None, out=None, ddof=0, keepdims=)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_geocode_1</span> <span class="o">=</span> <span class="n">df_geocode</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'postal_cd'</span><span class="p">)</span> \
+                <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">m_longitude</span><span class="o">=</span><span class="p">(</span><span class="s1">'longitude'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">),</span> 
+                     <span class="n">m_latitude</span><span class="o">=</span><span class="p">(</span><span class="s1">'latitude'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_customer_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_customer</span><span class="p">,</span> <span class="n">df_geocode_1</span><span class="p">,</span> 
+                         <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'postal_cd'</span><span class="p">)</span>
+
+<span class="n">df_customer_1</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>customer_name</th>
+<th>gender_cd</th>
+<th>gender</th>
+<th>birth_day</th>
+<th>age</th>
+<th>postal_cd</th>
+<th>address</th>
+<th>application_store_cd</th>
+<th>application_date</th>
+<th>status_cd</th>
+<th>m_longitude</th>
+<th>m_latitude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS021313000114</td>
+<td>大野 あや子</td>
+<td>1</td>
+<td>女性</td>
+<td>1981-04-29</td>
+<td>37</td>
+<td>259-1113</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>S14021</td>
+<td>20150905</td>
+<td>0-00000000-0</td>
+<td>139.31779</td>
+<td>35.41358</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS021303000023</td>
+<td>堀 一徳</td>
+<td>0</td>
+<td>男性</td>
+<td>1980-04-05</td>
+<td>38</td>
+<td>259-1113</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>S14021</td>
+<td>20160411</td>
+<td>0-00000000-0</td>
+<td>139.31779</td>
+<td>35.41358</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS021303000007</td>
+<td>石倉 俊二</td>
+<td>0</td>
+<td>男性</td>
+<td>1987-07-04</td>
+<td>31</td>
+<td>259-1113</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>S14021</td>
+<td>20150707</td>
+<td>0-00000000-0</td>
+<td>139.31779</td>
+<td>35.41358</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CS021313000183</td>
+<td>草野 未來</td>
+<td>1</td>
+<td>女性</td>
+<td>1986-12-21</td>
+<td>32</td>
+<td>259-1113</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>S14021</td>
+<td>20170611</td>
+<td>0-00000000-0</td>
+<td>139.31779</td>
+<td>35.41358</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CS021314000098</td>
+<td>筒井 れいな</td>
+<td>1</td>
+<td>女性</td>
+<td>1985-09-21</td>
+<td>33</td>
+<td>259-1113</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>S14021</td>
+<td>20160901</td>
+<td>0-00000000-0</td>
+<td>139.31779</td>
+<td>35.41358</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CS021314000093</td>
+<td>江藤 美佐</td>
+<td>1</td>
+<td>女性</td>
+<td>1986-06-03</td>
+<td>32</td>
+<td>259-1113</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>S14021</td>
+<td>20151015</td>
+<td>0-00000000-0</td>
+<td>139.31779</td>
+<td>35.41358</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS021413000049</td>
+<td>大野 幸子</td>
+<td>1</td>
+<td>女性</td>
+<td>1973-04-17</td>
+<td>45</td>
+<td>259-1113</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>S14021</td>
+<td>20150703</td>
+<td>0-00000000-0</td>
+<td>139.31779</td>
+<td>35.41358</td>
+</tr>
+<tr>
+<th>7</th>
+<td>CS037613000071</td>
+<td>六角 雅彦</td>
+<td>9</td>
+<td>不明</td>
+<td>1952-04-01</td>
+<td>66</td>
+<td>136-0076</td>
+<td>東京都江東区南砂**********</td>
+<td>S13037</td>
+<td>20150414</td>
+<td>0-00000000-0</td>
+<td>139.83502</td>
+<td>35.67193</td>
+</tr>
+<tr>
+<th>8</th>
+<td>CS015415000209</td>
+<td>大谷 倫子</td>
+<td>1</td>
+<td>女性</td>
+<td>1970-11-25</td>
+<td>48</td>
+<td>136-0076</td>
+<td>東京都江東区南砂**********</td>
+<td>S13015</td>
+<td>20150909</td>
+<td>B-20090610-C</td>
+<td>139.83502</td>
+<td>35.67193</td>
+</tr>
+<tr>
+<th>9</th>
+<td>CS037614000045</td>
+<td>長沢 麻緒</td>
+<td>1</td>
+<td>女性</td>
+<td>1952-06-19</td>
+<td>66</td>
+<td>136-0076</td>
+<td>東京都江東区南砂**********</td>
+<td>S13037</td>
+<td>20150209</td>
+<td>5-20091207-6</td>
+<td>139.83502</td>
+<td>35.67193</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -17226,16 +19650,148 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calc_distance</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="mi">6371</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span> 
+                    <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> 
+                    <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span> 
+                    <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> 
+                    <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">y1</span><span class="p">)</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">y2</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">distance</span>
+
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_customer_1</span><span class="p">,</span> <span class="n">df_store</span><span class="p">,</span> 
+                  <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> 
+                  <span class="n">left_on</span><span class="o">=</span><span class="s1">'application_store_cd'</span><span class="p">,</span> 
+                  <span class="n">right_on</span><span class="o">=</span><span class="s1">'store_cd'</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'address_x'</span><span class="p">:</span><span class="s1">'customer_address'</span><span class="p">,</span> 
+                         <span class="s1">'address_y'</span><span class="p">:</span><span class="s1">'store_address'</span><span class="p">})</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'distance'</span><span class="p">]</span> <span class="o">=</span>   <span class="n">df_tmp</span><span class="p">[[</span><span class="s1">'m_latitude'</span><span class="p">,</span> 
+                               <span class="s1">'m_longitude'</span><span class="p">,</span>
+                               <span class="s1">'latitude'</span><span class="p">,</span> 
+                               <span class="s1">'longitude'</span><span class="p">]]</span> \
+                        <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">calc_distance</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> 
+                               <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[[</span><span class="s1">'customer_id'</span><span class="p">,</span> <span class="s1">'customer_address'</span><span class="p">,</span> 
+        <span class="s1">'store_address'</span><span class="p">,</span> <span class="s1">'distance'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>customer_address</th>
+<th>store_address</th>
+<th>distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS021313000114</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>1.394409</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS021303000023</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>1.394409</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS021303000007</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>1.394409</td>
+</tr>
+<tr>
+<th>3</th>
+<td>CS021313000183</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>1.394409</td>
+</tr>
+<tr>
+<th>4</th>
+<td>CS021314000098</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>1.394409</td>
+</tr>
+<tr>
+<th>5</th>
+<td>CS021314000093</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>1.394409</td>
+</tr>
+<tr>
+<th>6</th>
+<td>CS021413000049</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>1.394409</td>
+</tr>
+<tr>
+<th>7</th>
+<td>CS021313000025</td>
+<td>神奈川県伊勢原市伊勢原**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>0.474282</td>
+</tr>
+<tr>
+<th>8</th>
+<td>CS021413000022</td>
+<td>神奈川県伊勢原市伊勢原**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>0.474282</td>
+</tr>
+<tr>
+<th>9</th>
+<td>CS021413000094</td>
+<td>神奈川県伊勢原市伊勢原**********</td>
+<td>神奈川県伊勢原市伊勢原四丁目</td>
+<td>0.474282</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -17254,16 +19810,46 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_receipt_tmp</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span> \
+                    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">sum_amount</span><span class="o">=</span><span class="p">(</span><span class="s1">'amount'</span><span class="p">,</span><span class="s1">'sum'</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_customer_u</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_customer</span><span class="p">,</span> <span class="n">df_receipt_tmp</span><span class="p">,</span> 
+                         <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> 
+                         <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span>
+
+<span class="n">df_customer_u</span><span class="p">[</span><span class="s1">'sum_amount'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_customer_u</span><span class="p">[</span><span class="s1">'sum_amount'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df_customer_u</span> <span class="o">=</span> <span class="n">df_customer_u</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">'sum_amount'</span><span class="p">,</span> <span class="s1">'customer_id'</span><span class="p">],</span> 
+                                          <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+
+<span class="n">df_customer_u</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'customer_name'</span><span class="p">,</span> <span class="s1">'postal_cd'</span><span class="p">],</span> 
+                              <span class="n">keep</span><span class="o">=</span><span class="s1">'first'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'df_customer_cnt:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_customer</span><span class="p">),</span>
+      <span class="s1">'df_customer_u_cnt:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_customer_u</span><span class="p">),</span>
+      <span class="s1">'diff:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_customer</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_customer_u</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>df_customer_cnt: 21971 df_customer_u_cnt: 21941 diff: 30
+</pre>
 </div>
 </div>
 </div>
@@ -17287,16 +19873,38 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_customer_n</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_customer</span><span class="p">,</span> 
+                         <span class="n">df_customer_u</span><span class="p">[[</span><span class="s1">'customer_name'</span><span class="p">,</span> 
+                                        <span class="s1">'postal_cd'</span><span class="p">,</span> <span class="s1">'customer_id'</span><span class="p">]],</span>
+                         <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span><span class="p">[</span><span class="s1">'customer_name'</span><span class="p">,</span> <span class="s1">'postal_cd'</span><span class="p">])</span>
+
+<span class="n">df_customer_n</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'customer_id_x'</span><span class="p">:</span><span class="s1">'customer_id'</span><span class="p">,</span> 
+                              <span class="s1">'customer_id_y'</span><span class="p">:</span><span class="s1">'integration_id'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'ID数の差'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_customer_n</span><span class="p">[</span><span class="s1">'customer_id'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> 
+                         <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_customer_n</span><span class="p">[</span><span class="s1">'integration_id'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>ID数の差 30
+</pre>
 </div>
 </div>
 </div>
@@ -17315,16 +19923,41 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_sales_customer</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span> \
+                                    <span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span><span class="nb">sum</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_sales_customer</span> <span class="o">=</span> <span class="n">df_sales_customer</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'amount &gt; 0'</span><span class="p">)</span>
+
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_customer</span><span class="p">,</span> <span class="n">df_sales_customer</span><span class="p">[</span><span class="s1">'customer_id'</span><span class="p">],</span> 
+                  <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span>
+
+<span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">71</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'学習データ割合: '</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'テストデータ割合: '</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>学習データ割合:  0.7999036840837949
+テストデータ割合:  0.20009631591620516
+</pre>
 </div>
 </div>
 </div>
@@ -17343,16 +19976,106 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_ts_amount</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="p">[[</span><span class="s1">'sales_ymd'</span><span class="p">,</span> <span class="s1">'amount'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">df_ts_amount</span><span class="p">[</span><span class="s1">'sales_ym'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ts_amount</span><span class="p">[</span><span class="s1">'sales_ymd'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'str'</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+
+<span class="n">df_ts_amount</span> <span class="o">=</span> <span class="n">df_ts_amount</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'sales_ym'</span><span class="p">)</span> \
+                                        <span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum'</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">split_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">train_size</span><span class="p">,</span> <span class="n">test_size</span><span class="p">,</span> <span class="n">slide_window</span><span class="p">,</span> <span class="n">start_point</span><span class="p">):</span>
+    <span class="n">train_start</span> <span class="o">=</span> <span class="n">start_point</span> <span class="o">*</span> <span class="n">slide_window</span>
+    <span class="n">test_start</span> <span class="o">=</span> <span class="n">train_start</span> <span class="o">+</span> <span class="n">train_size</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">train_start</span><span class="p">:</span><span class="n">test_start</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">test_start</span><span class="p">:</span><span class="n">test_start</span> <span class="o">+</span> <span class="n">test_size</span><span class="p">]</span>
+
+<span class="n">df_train_1</span><span class="p">,</span> <span class="n">df_test_1</span> <span class="o">=</span> <span class="n">split_data</span><span class="p">(</span><span class="n">df_ts_amount</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
+                                   <span class="n">test_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">slide_window</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df_train_2</span><span class="p">,</span> <span class="n">df_test_2</span> <span class="o">=</span> <span class="n">split_data</span><span class="p">(</span><span class="n">df_ts_amount</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
+                                   <span class="n">test_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">slide_window</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_train_3</span><span class="p">,</span> <span class="n">df_test_3</span> <span class="o">=</span> <span class="n">split_data</span><span class="p">(</span><span class="n">df_ts_amount</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
+                                   <span class="n">test_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">slide_window</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">start_point</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">df_train_1</span>
+<span class="n">df_test_1</span>
+<span class="n">df_test_2</span>
+<span class="n">df_test_3</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>sales_ym</th>
+<th>amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>24</th>
+<td>201901</td>
+<td>1064085</td>
+</tr>
+<tr>
+<th>25</th>
+<td>201902</td>
+<td>959538</td>
+</tr>
+<tr>
+<th>26</th>
+<td>201903</td>
+<td>1093753</td>
+</tr>
+<tr>
+<th>27</th>
+<td>201904</td>
+<td>1044210</td>
+</tr>
+<tr>
+<th>28</th>
+<td>201905</td>
+<td>1111985</td>
+</tr>
+<tr>
+<th>29</th>
+<td>201906</td>
+<td>1089063</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -17371,16 +20094,41 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_receipt</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'customer_id'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'amount'</span><span class="p">:</span><span class="s1">'sum'</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_customer</span><span class="p">,</span> <span class="n">df_tmp</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'customer_id'</span><span class="p">)</span>
+
+<span class="n">df_tmp</span><span class="p">[</span><span class="s1">'is_buy_flag'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">'amount'</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">rs</span> <span class="o">=</span> <span class="n">RandomUnderSampler</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">71</span><span class="p">)</span>
+
+<span class="n">df_down_sampling</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">,</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">is_buy_flag</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'0の件数'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_down_sampling</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'is_buy_flag == 0'</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'1の件数'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_down_sampling</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'is_buy_flag == 1'</span><span class="p">)))</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>0の件数 8306
+1の件数 8306
+</pre>
 </div>
 </div>
 </div>
@@ -17399,16 +20147,104 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_gender_std</span> <span class="o">=</span> <span class="n">df_customer</span><span class="p">[[</span><span class="s1">'gender_cd'</span><span class="p">,</span> <span class="s1">'gender'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">df_customer_std</span> <span class="o">=</span> <span class="n">df_customer</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">'gender'</span><span class="p">)</span>
+
+<span class="n">df_customer_std</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>customer_id</th>
+<th>customer_name</th>
+<th>gender_cd</th>
+<th>birth_day</th>
+<th>age</th>
+<th>postal_cd</th>
+<th>address</th>
+<th>application_store_cd</th>
+<th>application_date</th>
+<th>status_cd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>CS021313000114</td>
+<td>大野 あや子</td>
+<td>1</td>
+<td>1981-04-29</td>
+<td>37</td>
+<td>259-1113</td>
+<td>神奈川県伊勢原市粟窪**********</td>
+<td>S14021</td>
+<td>20150905</td>
+<td>0-00000000-0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>CS037613000071</td>
+<td>六角 雅彦</td>
+<td>9</td>
+<td>1952-04-01</td>
+<td>66</td>
+<td>136-0076</td>
+<td>東京都江東区南砂**********</td>
+<td>S13037</td>
+<td>20150414</td>
+<td>0-00000000-0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>CS031415000172</td>
+<td>宇多田 貴美子</td>
+<td>1</td>
+<td>1976-10-04</td>
+<td>42</td>
+<td>151-0053</td>
+<td>東京都渋谷区代々木**********</td>
+<td>S13031</td>
+<td>20150529</td>
+<td>D-20100325-C</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -17427,16 +20263,103 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_product</span><span class="p">,</span> <span class="n">df_category</span><span class="p">[[</span><span class="s1">'category_small_cd'</span><span class="p">,</span> 
+                                                    <span class="s1">'category_major_name'</span><span class="p">,</span>
+                                                    <span class="s1">'category_medium_name'</span><span class="p">,</span>
+                                                    <span class="s1">'category_small_name'</span><span class="p">]],</span> 
+                           <span class="n">how</span> <span class="o">=</span> <span class="s1">'inner'</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">'category_small_cd'</span><span class="p">)</span>
+
+
+<span class="n">df_product_full</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>product_cd</th>
+<th>category_major_cd</th>
+<th>category_medium_cd</th>
+<th>category_small_cd</th>
+<th>unit_price</th>
+<th>unit_cost</th>
+<th>category_major_name</th>
+<th>category_medium_name</th>
+<th>category_small_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>P040101001</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>198.0</td>
+<td>149.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+<tr>
+<th>1</th>
+<td>P040101002</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>218.0</td>
+<td>164.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+<tr>
+<th>2</th>
+<td>P040101003</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>230.0</td>
+<td>173.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -17467,10 +20390,11 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_full</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'../work/data/abc.csv'</span><span class="p">,</span> 
+                       <span class="n">encoding</span><span class="o">=</span><span class="s1">'UTF-8'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -17502,10 +20426,11 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [51]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_full</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'../work/data/abc.csv'</span><span class="p">,</span> 
+                       <span class="n">encoding</span><span class="o">=</span><span class="s1">'CP932'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -17537,10 +20462,11 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [53]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_full</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'../work/data/abc.csv'</span><span class="p">,</span> 
+                       <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'UTF-8'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -17563,16 +20489,102 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../work/data/abc.csv'</span><span class="p">,</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">'category_major_cd'</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+                           <span class="s1">'category_medium_cd'</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+                           <span class="s1">'category_small_cd'</span><span class="p">:</span><span class="nb">str</span><span class="p">},</span>
+                    <span class="n">encoding</span><span class="o">=</span><span class="s1">'UTF-8'</span><span class="p">)</span>
+
+<span class="n">df_product_full</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[54]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>P040101001</th>
+<th>04</th>
+<th>0401</th>
+<th>040101</th>
+<th>198.0</th>
+<th>149.0</th>
+<th>惣菜</th>
+<th>御飯類</th>
+<th>弁当類</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>P040101002</td>
+<td>4</td>
+<td>401</td>
+<td>40101</td>
+<td>218.0</td>
+<td>164.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+<tr>
+<th>1</th>
+<td>P040101003</td>
+<td>4</td>
+<td>401</td>
+<td>40101</td>
+<td>230.0</td>
+<td>173.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+<tr>
+<th>2</th>
+<td>P040101004</td>
+<td>4</td>
+<td>401</td>
+<td>40101</td>
+<td>248.0</td>
+<td>186.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -17594,16 +20606,107 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../work/data/abc.csv'</span><span class="p">,</span>
+                     <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+                            <span class="mi">2</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+                            <span class="mi">3</span><span class="p">:</span><span class="nb">str</span><span class="p">},</span>
+                     <span class="n">encoding</span><span class="o">=</span><span class="s1">'UTF-8'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">df_product_full</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'product_cd'</span><span class="p">,</span><span class="s1">'category_major_cd'</span><span class="p">,</span>
+                           <span class="s1">'category_medium_cd'</span><span class="p">,</span> <span class="s1">'category_small_cd'</span><span class="p">,</span>
+                           <span class="s1">'unit_price'</span><span class="p">,</span><span class="s1">'unit_cost'</span><span class="p">,</span><span class="s1">'category_major_name'</span><span class="p">,</span>
+                           <span class="s1">'category_medium_name'</span><span class="p">,</span> <span class="s1">'category_small_name'</span><span class="p">]</span>
+
+<span class="n">df_product_full</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>product_cd</th>
+<th>category_major_cd</th>
+<th>category_medium_cd</th>
+<th>category_small_cd</th>
+<th>unit_price</th>
+<th>unit_cost</th>
+<th>category_major_name</th>
+<th>category_medium_name</th>
+<th>category_small_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>P040101001</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>198.0</td>
+<td>149.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+<tr>
+<th>1</th>
+<td>P040101002</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>218.0</td>
+<td>164.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+<tr>
+<th>2</th>
+<td>P040101003</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>230.0</td>
+<td>173.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -17634,10 +20737,11 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_full</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'../work/data/abc.tsv'</span><span class="p">,</span> 
+                       <span class="n">sep</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'UTF-8'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -17660,16 +20764,101 @@ $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_product_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">'../work/data/abc.tsv'</span><span class="p">,</span> 
+                       <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">'category_major_cd'</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+                              <span class="s1">'category_medium_cd'</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+                              <span class="s1">'category_small_cd'</span><span class="p">:</span><span class="nb">str</span><span class="p">},</span>
+                       <span class="n">encoding</span><span class="o">=</span><span class="s1">'UTF-8'</span><span class="p">)</span>
+<span class="n">df_product_full</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>product_cd</th>
+<th>category_major_cd</th>
+<th>category_medium_cd</th>
+<th>category_small_cd</th>
+<th>unit_price</th>
+<th>unit_cost</th>
+<th>category_major_name</th>
+<th>category_medium_name</th>
+<th>category_small_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>P040101001</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>198.0</td>
+<td>149.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+<tr>
+<th>1</th>
+<td>P040101002</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>218.0</td>
+<td>164.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+<tr>
+<th>2</th>
+<td>P040101003</td>
+<td>04</td>
+<td>0401</td>
+<td>040101</td>
+<td>230.0</td>
+<td>173.0</td>
+<td>惣菜</td>
+<td>御飯類</td>
+<td>弁当類</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
